@@ -6,7 +6,7 @@
 /*   By: smaddox <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 20:29:55 by smaddox           #+#    #+#             */
-/*   Updated: 2019/09/05 19:53:51 by smaddox          ###   ########.fr       */
+/*   Updated: 2019/09/07 09:30:57 by smaddox          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 # define FT_SHA256_H
 
 # include "ft_printf.h"
+# include "utils.h"
 
 # define ROT_R(x, y) (((x) >> (y)) | ((x) << (32-(y))))
 # define CH(x, y, z) (((x) & (y)) ^ ((~x) & (z)))
 # define MAJ(x, y, z) (((x) & (y)) ^ ((x) & (z)) ^ ((y) & (z)))
-# define SWP(x) ((x>>24)|(((x)&0xFF0000)>>8)|(((x)&0xFF00)<<8)|((x)<<24))
+# define SWP(x) ((x)>>24)|(((x)&0xFF0000)>>8)|(((x)&0xFF00)<<8)|((x)<<24)
 # define E0(x) (ROT_R((x), 2) ^ (ROT_R((x), 13)) ^ (ROT_R((x), 22)))
 # define E1(x) (ROT_R((x), 6) ^ (ROT_R((x), 11)) ^ (ROT_R((x), 25)))
 # define OM0(x) ((ROT_R((x), 7)) ^ (ROT_R((x), 18)) ^ (x >> 3))
@@ -37,6 +38,13 @@ void				sha256_final(t_context *context, uint8_t *input,
 void				sha256_transform(t_context *context, uint32_t *chunk);
 void				sha256_expand_chunk(uint32_t *chunk, uint32_t *w);
 void				sha256_set_buffer(t_context *context, int o);
+void				sha256_string_handle(char *str, uint8_t flags);
+void				sha256_handle_error(char *str, uint8_t flags);
+void				sha256_handle_file(char *f, uint8_t *flags);
+void				sha256_handle_file_two(t_file f, uint8_t flags);
+void				sha256_handle_stdin(uint8_t *flags);
+int					sha256_driver(int ac, char **av);
+void				sha256_driver_helper(int *i, int *ac, uint8_t *flags, char **av);
 
 static uint32_t g_consts[64] =
 {

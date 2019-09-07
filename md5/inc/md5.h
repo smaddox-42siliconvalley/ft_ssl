@@ -6,7 +6,7 @@
 /*   By: smaddox <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 15:04:59 by smaddox           #+#    #+#             */
-/*   Updated: 2019/09/06 19:38:27 by smaddox          ###   ########.fr       */
+/*   Updated: 2019/09/07 02:56:33 by smaddox          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "ft_printf.h"
 # include "utils.h"
-# include <stdio.h>
+//# include <stdio.h>
 
 # define ROT_L(x, n) (((x) << (n)) | ((x) >> (32-(n))))
 
@@ -36,7 +36,7 @@ void						md5_final(t_contxt *context, uint8_t *input,
 		int padded_length);
 
 void						handle_file_two(t_file f, uint8_t flags);
-void						md5_fuck_norm(int *i, int *ac, uint8_t *flags,
+void						md5_driver_helper(int *i, int *ac, uint8_t *flags,
 		char **av);
 void						string_handle(char *str, uint8_t flags);
 void						handle_error(char *str, uint8_t flags);

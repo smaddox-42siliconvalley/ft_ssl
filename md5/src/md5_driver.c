@@ -6,7 +6,7 @@
 /*   By: smaddox <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 01:05:46 by smaddox           #+#    #+#             */
-/*   Updated: 2019/09/06 19:49:20 by smaddox          ###   ########.fr       */
+/*   Updated: 2019/09/07 02:42:53 by smaddox          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	handle_stdin(uint8_t *flags)
 	md5_init(f.data, f.size);
 	write(1, "\n", 1);
 	TOGGLE_P(*flags);
-	return;
+	return ;
 }
 
 int		md5_driver(int ac, char **av)
@@ -79,6 +79,6 @@ int		md5_driver(int ac, char **av)
 	flags = 3;
 	if (ac == 0)
 		handle_stdin(&flags);
-	md5_fuck_norm(&i, &ac, &flags, av);
+	md5_driver_helper(&i, &ac, &flags, av);
 	return (0);
 }

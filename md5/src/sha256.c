@@ -6,7 +6,7 @@
 /*   By: smaddox <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 20:57:10 by smaddox           #+#    #+#             */
-/*   Updated: 2019/09/05 19:56:12 by smaddox          ###   ########.fr       */
+/*   Updated: 2019/09/07 09:36:42 by smaddox          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,11 @@ void	sha256_init(uint8_t *str, size_t len)
 	ft_bzero(input, padded_length + 8);
 	ft_memcpy(input, str, len);
 	input[len] = 0x80;
-	num_bits = (num_bits >> 56) | ((num_bits & 0xFF000000000000) >> 40) |
-		((num_bits & 0xFF0000000000 >> 24) | ((num_bits & 0xFF00000000) >> 8) |
+	num_bits = ((num_bits >> 56) | ((num_bits & 0xFF000000000000) >> 40) |
+		((num_bits & 0xFF0000000000) >> 24) | ((num_bits & 0xFF00000000) >> 8) |
 		((num_bits & 0xFF000000) << 8) | ((num_bits & 0xFF0000) << 24) |
 		(num_bits & 0xFF00) << 40) | (num_bits << 56);
-	*((uint64_t*)(input + padded_length)) = num_bits;
+	ft_memcpy((input + padded_length), &num_bits, 8);
 	sha256_final(&context, input, padded_length);
 	free(input);
 }
