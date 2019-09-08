@@ -6,21 +6,23 @@
 /*   By: smaddox <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 00:21:26 by smaddox           #+#    #+#             */
-/*   Updated: 2019/09/06 18:39:50 by smaddox          ###   ########.fr       */
+/*   Updated: 2019/09/07 18:37:14 by smaddox          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_UTILS_H
 # define FT_UTILS_H
 
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
+# include <unistd.h>
 
 # define P_FLAG 0xc0
 # define Q_FLAG 0x30
 # define R_FLAG 0xc
 # define S_FLAG 0x3
+# define SET_R(x) ((x) |= (R_FLAG))
+# define SET_Q(x) ((x) = ((x) | Q_FLAG) & 0xF3)
 # define TOGGLE_P(x) ((x) ^= (P_FLAG))
 # define TOGGLE_Q(x) ((x) ^= (Q_FLAG))
 # define TOGGLE_R(x) ((x) ^= (R_FLAG))

@@ -6,7 +6,7 @@
 /*   By: smaddox <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 15:04:59 by smaddox           #+#    #+#             */
-/*   Updated: 2019/09/07 02:56:33 by smaddox          ###   ########.fr       */
+/*   Updated: 2019/09/07 17:28:44 by smaddox          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "ft_printf.h"
 # include "utils.h"
-//# include <stdio.h>
 
 # define ROT_L(x, n) (((x) << (n)) | ((x) >> (32-(n))))
 
@@ -42,8 +41,6 @@ void						string_handle(char *str, uint8_t flags);
 void						handle_error(char *str, uint8_t flags);
 void						handle_file(char *f, uint8_t *flags);
 void						handle_stdin(uint8_t *flags);
-
-
 static uint32_t		g_constants[64] =
 {
 	0xd76aa478, 0xe8c7b756, 0x242070db, 0xc1bdceee,

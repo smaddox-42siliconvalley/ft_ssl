@@ -6,7 +6,7 @@
 /*   By: smaddox <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 01:05:46 by smaddox           #+#    #+#             */
-/*   Updated: 2019/09/07 02:42:53 by smaddox          ###   ########.fr       */
+/*   Updated: 2019/09/07 19:15:02 by smaddox          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	handle_error(char *str, uint8_t flags)
 		ft_printf("ft_ssl: md5: %s: invalid option\n", str);
 	else
 		ft_printf("ft_ssl: md5: %s: No such file\n", str);
-	return;
+	return ;
 }
 
 void	handle_file(char *f, uint8_t *flags)
@@ -74,11 +74,12 @@ int		md5_driver(int ac, char **av)
 {
 	int		i;
 	uint8_t	flags;
-	
+
 	i = -1;
 	flags = 3;
 	if (ac == 0)
 		handle_stdin(&flags);
+	TOGGLE_P(flags);
 	md5_driver_helper(&i, &ac, &flags, av);
 	return (0);
 }

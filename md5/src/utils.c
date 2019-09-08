@@ -6,7 +6,7 @@
 /*   By: smaddox <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 02:49:07 by smaddox           #+#    #+#             */
-/*   Updated: 2019/09/07 05:15:42 by smaddox          ###   ########.fr       */
+/*   Updated: 2019/09/07 17:41:36 by smaddox          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ t_file	file_reader(char *f)
 	char	garbage;
 	t_file	temp;
 
-	ft_bzero(&temp, sizeof(temp));	
+	ft_bzero(&temp, sizeof(temp));
 	temp.name = f;
 	if ((fd = open(f, O_RDONLY)) < 0)
 	{
 		temp.error = -1;
-		return(temp);
+		return (temp);
 	}
 	while ((bytes = read(fd, &garbage, 1)) > 0)
 		temp.size++;
@@ -55,10 +55,5 @@ t_file	stdin_reader(void)
 		temp.size++;
 		free(tmp);
 	}
-	return(temp);
+	return (temp);
 }
-
-
-
-
-

@@ -6,7 +6,7 @@
 /*   By: smaddox <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/07 03:01:13 by smaddox           #+#    #+#             */
-/*   Updated: 2019/09/07 09:38:04 by smaddox          ###   ########.fr       */
+/*   Updated: 2019/09/07 19:26:06 by smaddox          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,16 @@ void	sha256_handle_file_two(t_file f, uint8_t flags)
 void	sha256_driver_helper(int *i, int *ac, uint8_t *flags, char **av)
 {
 	while (++(*i) < (*ac))
-    {
-        if ((ft_strcmp(av[(*i)], "-q") == 0) && !CHECK_Q(*flags) && CHECK_S(*flags))
-        {
-            TOGGLE_Q(*flags);
-            (CHECK_R(*flags)) ? TOGGLE_R(*flags) : 0;
-        }
-        else if ((ft_strcmp(av[(*i)], "-r") == 0) &&
-                !CHECK_Q(*flags) && CHECK_S(*flags) && !CHECK_R(*flags))
-            TOGGLE_R(*flags);
-        else if ((ft_strcmp(av[(*i)], "-s") == 0) && CHECK_S(*flags))
-            sha256_string_handle(av[++(*i)], *flags);
-        else if ((ft_strcmp(av[(*i)], "-p") == 0) && CHECK_S(*flags))
-        {
-            TOGGLE_P(*flags);
-            sha256_handle_stdin(flags);
-        }
-        else
-            sha256_handle_file(av[(*i)], flags);
+	{
+		if ((ft_strcmp(av[(*i)], "-q") == 0) && CHECK_S(*flags))
+			SET_Q(*flags);
+		else if ((ft_strcmp(av[(*i)], "-r") == 0) && CHECK_S(*flags))
+			(CHECK_Q(*flags)) ? 0 : SET_R(*flags);
+		else if ((ft_strcmp(av[(*i)], "-s") == 0) && CHECK_S(*flags))
+			(av[++(*i)]) ? sha256_string_handle(av[(*i)], *flags) : 0;
+		else if ((ft_strcmp(av[(*i)], "-p") == 0) && CHECK_S(*flags))
+			sha256_handle_stdin(flags);
+		else
+			sha256_handle_file(av[(*i)], flags);
 	}
 }

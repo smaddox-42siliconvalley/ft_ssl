@@ -6,7 +6,7 @@
 /*   By: smaddox <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/07 02:55:53 by smaddox           #+#    #+#             */
-/*   Updated: 2019/09/07 03:08:17 by smaddox          ###   ########.fr       */
+/*   Updated: 2019/09/07 19:21:46 by smaddox          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	sha256_handle_error(char *str, uint8_t flags)
 		ft_printf("ft_ssl: sha256: %s: invalid option\n", str);
 	else
 		ft_printf("ft_ssl: sha256: %s: No such file\n", str);
-	return;
+	return ;
 }
 
 void	sha256_handle_file(char *f, uint8_t *flags)
@@ -66,7 +66,6 @@ void	sha256_handle_stdin(uint8_t *flags)
 		ft_printf("%s", f.data);
 	sha256_init(f.data, f.size);
 	write(1, "\n", 1);
-	TOGGLE_P(*flags);
 	return ;
 }
 
@@ -74,11 +73,12 @@ int		sha256_driver(int ac, char **av)
 {
 	int		i;
 	uint8_t	flags;
-	
+
 	i = -1;
 	flags = 3;
 	if (ac == 0)
 		sha256_handle_stdin(&flags);
+	TOGGLE_P(flags);
 	sha256_driver_helper(&i, &ac, &flags, av);
 	return (0);
 }

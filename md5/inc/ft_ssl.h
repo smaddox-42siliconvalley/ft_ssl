@@ -6,7 +6,7 @@
 /*   By: smaddox <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 20:26:37 by smaddox           #+#    #+#             */
-/*   Updated: 2019/09/06 19:49:19 by smaddox          ###   ########.fr       */
+/*   Updated: 2019/09/07 17:29:56 by smaddox          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct			s_dis_table
 	t_dispatch_func		table[TABLE_LENGTH];
 }						t_dis_table;
 
-int						md5_driver(int ac, char** av);
-int						sha256_driver(int ac, char** av);
+int						md5_driver(int ac, char **av);
+int						sha256_driver(int ac, char **av);
 
 #endif

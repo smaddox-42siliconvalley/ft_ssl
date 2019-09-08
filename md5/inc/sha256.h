@@ -6,7 +6,7 @@
 /*   By: smaddox <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 20:29:55 by smaddox           #+#    #+#             */
-/*   Updated: 2019/09/07 09:30:57 by smaddox          ###   ########.fr       */
+/*   Updated: 2019/09/07 17:30:22 by smaddox          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ void				sha256_handle_file(char *f, uint8_t *flags);
 void				sha256_handle_file_two(t_file f, uint8_t flags);
 void				sha256_handle_stdin(uint8_t *flags);
 int					sha256_driver(int ac, char **av);
-void				sha256_driver_helper(int *i, int *ac, uint8_t *flags, char **av);
+void				sha256_driver_helper(int *i, int *ac,
+		uint8_t *flags, char **av);
 
 static uint32_t g_consts[64] =
 {
