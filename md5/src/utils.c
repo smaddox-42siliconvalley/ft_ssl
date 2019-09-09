@@ -6,7 +6,7 @@
 /*   By: smaddox <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 02:49:07 by smaddox           #+#    #+#             */
-/*   Updated: 2019/09/07 17:41:36 by smaddox          ###   ########.fr       */
+/*   Updated: 2019/09/09 02:14:39 by smaddox          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_file	file_reader(char *f)
 {
 	int		fd;
 	int		bytes;
-	char	garbage;
+	char	garbage[4096];
 	t_file	temp;
 
 	ft_bzero(&temp, sizeof(temp));
@@ -28,8 +28,8 @@ t_file	file_reader(char *f)
 		temp.error = -1;
 		return (temp);
 	}
-	while ((bytes = read(fd, &garbage, 1)) > 0)
-		temp.size++;
+	while ((bytes = read(fd, &garbage, 4096)) > 0)
+		temp.size += bytes;
 	temp.data = (uint8_t*)malloc(temp.size);
 	close(fd);
 	fd = open(f, O_RDONLY);
