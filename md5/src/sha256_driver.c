@@ -6,7 +6,7 @@
 /*   By: smaddox <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/07 02:55:53 by smaddox           #+#    #+#             */
-/*   Updated: 2019/09/07 19:21:46 by smaddox          ###   ########.fr       */
+/*   Updated: 2019/09/08 22:13:33 by smaddox          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	sha256_handle_stdin(uint8_t *flags)
 		ft_printf("%s", f.data);
 	sha256_init(f.data, f.size);
 	write(1, "\n", 1);
+	free(f.data);
 	return ;
 }
 

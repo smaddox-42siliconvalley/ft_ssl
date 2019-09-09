@@ -6,7 +6,7 @@
 /*   By: smaddox <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 01:05:46 by smaddox           #+#    #+#             */
-/*   Updated: 2019/09/07 19:15:02 by smaddox          ###   ########.fr       */
+/*   Updated: 2019/09/08 22:12:02 by smaddox          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	handle_stdin(uint8_t *flags)
 		ft_printf("%s", f.data);
 	md5_init(f.data, f.size);
 	write(1, "\n", 1);
+	free(f.data);
 	TOGGLE_P(*flags);
 	return ;
 }

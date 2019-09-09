@@ -6,7 +6,7 @@
 #    By: smaddox <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/07 17:12:04 by smaddox           #+#    #+#              #
-#    Updated: 2019/09/07 17:26:08 by smaddox          ###   ########.fr        #
+#    Updated: 2019/09/08 15:55:40 by smaddox          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,10 +26,10 @@ OBJECTS = $(CFILES:%.c=%.o)
 all : $(NAME)
 
 $(NAME) : $(OBJECTS)
-	gcc -o $(NAME) -I inc $(OBJECTS) src/libftprintf.a 
+	gcc -o $(NAME) -g -I inc $(OBJECTS) src/libftprintf.a 
 
 %.o : %.c
-	gcc -I inc -Wall -Wextra -Werror -c $< -o $@
+	gcc -g -I inc -Wall -Wextra -Werror -c $< -o $@
 
 clean :
 	rm -f $(OBJECTS)
