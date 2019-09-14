@@ -6,7 +6,7 @@
 /*   By: smaddox <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/07 02:55:53 by smaddox           #+#    #+#             */
-/*   Updated: 2019/09/08 22:13:33 by smaddox          ###   ########.fr       */
+/*   Updated: 2019/09/09 02:50:15 by smaddox          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	sha256_string_handle(char *str, uint8_t flags)
 	}
 	else
 	{
-		ft_printf("sha256 (\"%s\") = ", str);
+		ft_printf("SHA256 (\"%s\") = ", str);
 		sha256_init((uint8_t*)str, ft_strlen(str));
 		write(1, "\n", 1);
 	}

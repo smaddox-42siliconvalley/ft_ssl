@@ -6,7 +6,7 @@
 /*   By: smaddox <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/07 03:01:13 by smaddox           #+#    #+#             */
-/*   Updated: 2019/09/07 19:26:06 by smaddox          ###   ########.fr       */
+/*   Updated: 2019/09/09 02:50:31 by smaddox          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	sha256_handle_file_two(t_file f, uint8_t flags)
 	}
 	else
 	{
-		ft_printf("sha256 (%s) = ", f.name);
+		ft_printf("SHA256 (%s) = ", f.name);
 		sha256_init(f.data, f.size);
 		write(1, "\n", 1);
 	}
